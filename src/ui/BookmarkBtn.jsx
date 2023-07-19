@@ -1,23 +1,24 @@
-// import { useState } from "react";
+import { useState } from "react";
+import { useBookmarked } from "../features/movies/useBookmarked";
 import { useBookmarkedMovies } from "../features/movies/useBookmarkedMovies";
 import { StyledBtnIcon } from "../styles/StyledButtonIcon";
 // import { useMovies } from "../context/MoviesContext";
 
 function BookmarkBtn({ movie }) {
-  const { bookmarkedMovie, isBookmarking } = useBookmarkedMovies();
-  // const [bookmarked, setIsBookmarked] = useState(movie.isBookmarked);
+  // const { bookmarkedMovies } = useMov();
+  const { bookmarkedMovie, isBookmarking } = useBookmarked();
+  const [bookmarked, setIsBookmarked] = useState(movie.isBookmarked);
   // const { bookmark } = useMovies();
-
-  //   console.log(bookmarmovies);
 
   function handleBookmarked() {
     // setIsBookmarked((bookmark) => !bookmark);
     bookmarkedMovie(movie.id);
+    setIsBookmarked((bookmark) => !bookmark);
   }
 
   return (
     <StyledBtnIcon type="bookmark" onClick={handleBookmarked}>
-      {!movie.isBookmarked ? (
+      {!bookmarked ? (
         <svg width="12" height="14" xmlns="http://www.w3.org/2000/svg">
           <path
             d="m10.518.75.399 12.214-5.084-4.24-4.535 4.426L.75 1.036l9.768-.285Z"

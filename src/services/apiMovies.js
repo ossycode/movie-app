@@ -20,7 +20,7 @@ export async function getBookmarkedMovies() {
     if (!res.ok) throw new Error("Movies not found");
 
     const data = await res.json();
-    console.log(data);
+
     return data;
   } catch (error) {
     console.log(error.message);
@@ -36,25 +36,39 @@ export async function bookmarkedMovie(id) {
     if (!res.ok) throw new Error("Movie not found");
 
     const data = await res.json();
+    const data2 = data[0];
 
     const res2 = await fetch(
-      `https://fake-movies-api.onrender.com/movies?id=${id}`,
+      `https://fake-movies-api.onrender.com/movies/${id}`,
       {
         method: "PATCH",
-        body: JSON.stringify({ ...data, isBookmarked: !data.isBookmarked }),
-        headers: {
+        body: JSON.stringify({ ...data2, isBookmarked: !data2.isBookmarked }),
+        headers: new Headers({
           "Content-Type": "application/json",
-        },
+        }),
       }
     );
 
-    if (!res2.ok) throw Error();
-
-    // data.isBookmarked = !data.isBookmarked;
+    if (!res2.ok) throw Error("Movie not bookmarked");
 
     return data;
   } catch (error) {
     console.log(error.message);
     throw Error("Failed bookmarking movie");
+  }
+}
+
+export async function searchMovies(query) {
+  try {
+    const res = await fetch(
+      `https://fake-movies-api.onrender.com/movies?q=${query}`
+    );
+    if (!res.ok) throw new Error("No Movies found");
+
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.log(error.message);
+    throw Error("No Movies found");
   }
 }

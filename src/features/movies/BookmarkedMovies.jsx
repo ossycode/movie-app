@@ -4,6 +4,8 @@ import Spinner from "../../ui/Spinner";
 import BookmarkedMoviesList from "./BookmarkedMoviesList";
 import BookmarkedSeriesList from "./BookmarkedSeriesList";
 import { useMovies } from "./useMovies";
+import { useSearchParams } from "react-router-dom";
+import Searched from "./Searched";
 
 const StyledContainer = styled.div`
   margin-top: 4rem;
@@ -11,6 +13,12 @@ const StyledContainer = styled.div`
 
 function BookmarkedMovies() {
   const { movies, isLoading } = useMovies();
+
+  const [searchParams] = useSearchParams();
+
+  const hasSearchParams = searchParams.has("search");
+
+  if (hasSearchParams) return <Searched />;
 
   if (isLoading) return <Spinner />;
 

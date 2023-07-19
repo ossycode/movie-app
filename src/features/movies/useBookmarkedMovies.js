@@ -1,18 +1,13 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { bookmarkedMovie as bookmarkedMovieApi } from "../../services/apiMovies";
+import { useQuery } from "@tanstack/react-query";
+import { getBookmarkedMovies } from "../../services/apiMovies";
 
 export function useBookmarkedMovies() {
-  const queryClient = useQueryClient();
-  const { mutate: bookmarkedMovie, isLoading: isBookmarking } = useMutation({
-    mutationFn: bookmarkedMovieApi,
-    onSuccess: () => {
-      //   queryClient.setQueryData(["movie"], movie);
-      queryClient.invalidateQueries({ queryKey: ["movies"] });
-      console.log("success");
-    },
-    onError: (err) => {
-      console.log(err.message);
-    },
+  const { isLoading, data: bookmarkedMovies } = useQuery({
+    queryKey: ["bookmarkedMovies"],
+    queryFn: getBookmarkedMovies,
   });
-  return { bookmarkedMovie, isBookmarking };
+  return {
+    isLoading,
+    bookmarkedMovies,
+  };
 }

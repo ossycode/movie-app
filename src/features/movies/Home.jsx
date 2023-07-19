@@ -3,6 +3,8 @@ import TrendingList from "./TrendingList";
 import RecommendedList from "./RecommendedList";
 import { useMovies } from "./useMovies";
 import Spinner from "../../ui/Spinner";
+import { useSearchParams } from "react-router-dom";
+import Searched from "./Searched";
 
 const StyledTrendingContainer = styled.div`
   width: 100%;
@@ -11,6 +13,12 @@ const StyledTrendingContainer = styled.div`
 
 function Home() {
   const { isLoading, movies } = useMovies();
+
+  const [searchParams] = useSearchParams();
+
+  const hasSearchParams = searchParams.has("search");
+
+  if (hasSearchParams) return <Searched />;
 
   if (isLoading) return <Spinner />;
 

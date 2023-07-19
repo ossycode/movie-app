@@ -2,20 +2,16 @@ import Movie from "./Movie";
 import StyledMovieGrid from "../../styles/StyledMovieGrid";
 import BookmarkBtn from "../../ui/BookmarkBtn";
 import MovieInfoContainer from "../../ui/MovieInfoContainer";
+import Empty from "../../ui/Empty";
+
 import StyledMovieCardDiv from "../../styles/StyledMovieCardDiv";
 // import { useEffect, useState } from "react";
 
 function BookmarkedSeriesList({ movies }) {
-  // const { movies } = useMovies();
-  // const [tvSeries, setTvSeries] = useState(
-  //   movies.filter(
-  //     (movie) => movie.category === "TV Series" && movie.isBookmarked === true
-  //   )
-  // );
-
   const tvSeries = movies.filter(
     (movie) => movie.category === "TV Series" && movie.isBookmarked === true
   );
+  if (tvSeries.length === 0) return <Empty resourceName="tv series" />;
 
   return (
     <StyledMovieGrid>
