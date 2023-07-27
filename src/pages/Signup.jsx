@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 import Logo from "../ui/Logo";
-import SignUpForm from "../features/authentication/signUpForm";
+import SignupForm from "../features/authentication/signupForm";
 
 const StyledContainer = styled.div`
   display: flex;
@@ -14,7 +14,7 @@ function Signup() {
   return (
     <StyledContainer>
       <Logo />
-      <SignUpForm />
+      <SignupForm />
     </StyledContainer>
   );
 }
