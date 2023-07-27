@@ -10,7 +10,7 @@ const StyledContainer = styled.div`
   padding: 7.4rem;
 `;
 
-function SignUp() {
+function Signup() {
   return (
     <StyledContainer>
       <Logo />
@@ -19,4 +19,4 @@ function SignUp() {
   );
 }
 
-export default SignUp;
+export default Signup;

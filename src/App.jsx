@@ -13,7 +13,7 @@ import { Toaster } from "react-hot-toast";
 import ProtectedRoute from "./ui/ProtectedRoute";
 import { Tooltip } from "react-tooltip";
 import Settings from "./pages/Settings";
-import SignUp from "./pages/SignUp";
+import Signup from "./pages/Signup";
 
 const router = createBrowserRouter([
   {
@@ -52,7 +52,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/signUp",
-    element: <SignUp />,
+    element: <Signup />,
   },
 ]);
 
