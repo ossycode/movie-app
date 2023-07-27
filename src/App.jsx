@@ -10,20 +10,28 @@ import AppLayout from "./ui/AppLayout";
 import TvSeries from "./pages/TvSeries";
 import Movies from "./pages/Movies";
 import PageNotFound from "./pages/PageNotFound";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+// import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { Toaster } from "react-hot-toast";
+import ProtectedRoute from "./ui/ProtectedRoute";
+import { Tooltip } from "react-tooltip";
+import Settings from "./pages/Settings";
 
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      staleTime: 0,
-    },
-  },
-});
+// const queryClient = new QueryClient({
+//   defaultOptions: {
+//     queries: {
+//       staleTime: 0,
+//     },
+//   },
+// });
 
 const router = createBrowserRouter([
   {
-    element: <AppLayout />,
+    element: (
+      <ProtectedRoute>
+        <AppLayout />
+      </ProtectedRoute>
+    ),
     errorElement: <PageNotFound />,
     children: [
       {
@@ -42,6 +50,10 @@ const router = createBrowserRouter([
         path: "/tv-series",
         element: <TvSeries />,
       },
+      {
+        path: "/settings/:username",
+        element: <Settings />,
+      },
     ],
   },
   {
@@ -55,22 +67,38 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  // useLocalStorageState(
-  //   movies.map((movie) => ({
-  //     ...movie,
-  //     id: crypto.randomUUID().slice(1, 8),
-  //   })),
-  //   "movies"
-  // );
-  // localStorage.setItem(, JSON.stringify(movies));
-
   return (
     <>
-      <QueryClientProvider client={queryClient}>
-        <ReactQueryDevtools initialIsOpen={false} />
-        <GlobalStyles />
-        <RouterProvider router={router} />
-      </QueryClientProvider>
+      <ReactQueryDevtools initialIsOpen={false} />
+      <GlobalStyles />
+      <RouterProvider router={router} />
+      <Tooltip id="my-tooltip" />
+      <Toaster
+        position="top-center"
+        gutter={12}
+        containerStyle={{ margin: "8px" }}
+        toastOptions={{
+          success: {
+            duration: 3000,
+            style: {
+              backgroundColor: "var(--color-semi-darkBlue)",
+              color: "var(--color-white)",
+            },
+          },
+          error: {
+            duration: 5000,
+            style: {
+              backgroundColor: "var(--color-white)",
+              color: "var(--color-red-50)",
+            },
+          },
+          style: {
+            fontSize: "16px",
+            maxWidth: "500px",
+            padding: "16px 24px",
+          },
+        }}
+      />
     </>
   );
 }

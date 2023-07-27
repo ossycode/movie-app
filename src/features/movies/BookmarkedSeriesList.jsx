@@ -5,9 +5,11 @@ import MovieInfoContainer from "../../ui/MovieInfoContainer";
 import Empty from "../../ui/Empty";
 
 import StyledMovieCardDiv from "../../styles/StyledMovieCardDiv";
-// import { useEffect, useState } from "react";
+import { useScreenSize } from "../../hooks/useScreenSize";
 
 function BookmarkedSeriesList({ movies }) {
+  const { matches } = useScreenSize();
+
   const tvSeries = movies.filter(
     (movie) => movie.category === "TV Series" && movie.isBookmarked === true
   );
@@ -19,7 +21,7 @@ function BookmarkedSeriesList({ movies }) {
         <StyledMovieCardDiv key={movie.title}>
           <Movie
             movie={movie}
-            imgType={movie.thumbnail.regular.large}
+            imgType={movie.thumbnail.regular[matches]}
             divType="recommended"
           >
             <BookmarkBtn movie={movie} />

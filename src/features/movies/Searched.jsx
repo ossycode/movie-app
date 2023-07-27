@@ -7,27 +7,40 @@ import BookmarkBtn from "../../ui/BookmarkBtn";
 import MovieInfoContainer from "../../ui/MovieInfoContainer";
 import Empty from "../../ui/Empty";
 import StyledHeading from "../../styles/StyledHeading";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import { useScreenSize } from "../../hooks/useScreenSize";
+import StyledContainer from "../../styles/Styledcontainer";
+import Header from "../../ui/Header";
 
 function Searched() {
   const { isSearching, searchedMovies } = useSearch();
+  const [searchParams] = useSearchParams();
+
+  const query = searchParams.get("search");
+  const { matches } = useScreenSize();
+  const navigate = useNavigate();
+
+  if (query.trim() == "") navigate("/");
 
   if (isSearching) return <Spinner />;
 
-  const numberofMoviesFound = searchedMovies.length;
-  if (numberofMoviesFound < 1) return <Empty resourceName="movies" />;
+  const numberOfMoviesFound = searchedMovies.length;
+  if (numberOfMoviesFound < 1) return <Empty resourceName="movies" />;
+
+  const isMoreThanOne = numberOfMoviesFound > 1 ? "results" : "result";
 
   return (
-    <>
+    <StyledContainer>
+      <Header />
       <StyledHeading as="h1">
-        {numberofMoviesFound}{" "}
-        {numberofMoviesFound > 1 ? "Movies found" : "Movie found"}{" "}
+        {`Found ${numberOfMoviesFound} ${isMoreThanOne} for '${query}'`}
       </StyledHeading>
       <StyledMovieGrid>
         {searchedMovies.map((movie, index) => (
           <StyledMovieCardDiv key={movie.title}>
             <Movie
               movie={movie}
-              imgType={movie.thumbnail.regular.large}
+              imgType={movie.thumbnail.regular[matches]}
               divType="recommended"
             >
               <BookmarkBtn movie={movie} index={index} />
@@ -36,7 +49,7 @@ function Searched() {
           </StyledMovieCardDiv>
         ))}
       </StyledMovieGrid>
-    </>
+    </StyledContainer>
   );
 }
 

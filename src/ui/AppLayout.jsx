@@ -1,42 +1,47 @@
 import { styled } from "styled-components";
-import Header from "./Header";
+// import Header from "./Header";
 import SideBar from "./SideBar";
-import { Outlet, useNavigation } from "react-router-dom";
-import Spinner from "./Spinner";
+import { Outlet } from "react-router-dom";
 
 const StyledAppLayout = styled.div`
   display: grid;
   grid-template-columns: 15rem 1fr;
   grid-template-rows: auto 1fr;
-  height: 100dvh;
+  height: 100vh;
   width: 100vw;
+
+  @media only screen and (max-width: 75em) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 const Main = styled.main`
-  padding: 0rem 4.8rem 6.8rem 1rem;
+  /* padding-left: 1.5rem; */
   /* overflow: scroll; */
+
+  /* @media only screen and (max-width: 75em) {
+    padding-left: 2.5rem;
+  }
+  @media only screen and (max-width: 37.5em) {
+    padding-left: 1.5rem;
+  } */
 `;
 
 const Container = styled.div`
   max-height: 96rem;
-  /* max-width: 120rem; */
-  /* max-width: 120rem;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 3.2rem; */
+
+  @media only screen and (max-width: 37.5em) {
+    /* padding: 0rem 2rem; */
+  }
 `;
 
 function AppLayout() {
-  const navigation = useNavigation();
-  const isLoading = navigation.state === "loading";
-
-  if (isLoading) return <Spinner />;
-
   return (
     <StyledAppLayout>
-      <Header />
+      {/* <Header /> */}
       <SideBar />
+
       <Main>
         <Container>
           <Outlet />

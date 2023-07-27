@@ -12,21 +12,21 @@ export async function getMovies() {
   }
 }
 
-export async function getBookmarkedMovies() {
-  try {
-    const res = await fetch(
-      "https://fake-movies-api.onrender.com/movies?isBookmarked=true"
-    );
-    if (!res.ok) throw new Error("Movies not found");
+// export async function getBookmarkedMovies() {
+//   try {
+//     const res = await fetch(
+//       "https://fake-movies-api.onrender.com/movies?isBookmarked=true"
+//     );
+//     if (!res.ok) throw new Error("Movies not found");
 
-    const data = await res.json();
+//     const data = await res.json();
 
-    return data;
-  } catch (error) {
-    console.log(error.message);
-    throw Error("Movies not found");
-  }
-}
+//     return data;
+//   } catch (error) {
+//     console.log(error.message);
+//     throw Error("Movies not found");
+//   }
+// }
 
 export async function bookmarkedMovie(id) {
   try {

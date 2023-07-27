@@ -40,12 +40,33 @@ const StyledItem = styled.div`
     css`
       min-width: 47rem;
       min-height: 23rem;
+
+      @media only screen and (max-width: 37.5em) {
+        width: 24rem;
+        height: 14rem;
+      }
     `}
   ${(props) =>
     props.type === "recommended" &&
     css`
-      width: 28rem;
+      /* width: 28rem; */
       height: 17.4rem;
+      width: 100%;
+
+      /* @media only screen and (max-width: 75em) {
+        width: 27rem;
+        height: 15rem;
+      }
+
+      @media only screen and (max-width: 52.25em) {
+        width: 22rem;
+        height: 14rem;
+      }
+
+      @media only screen and (max-width: 37.5em) {
+        width: 16.4rem;
+        height: 11rem;
+      } */
     `}
   position: relative;
   background-image: ${(props) => `url(${props.img})`};

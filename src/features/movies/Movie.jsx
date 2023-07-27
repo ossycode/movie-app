@@ -6,6 +6,7 @@ const MovieContainer = styled.div`
   flex-direction: column;
   align-items: start;
   gap: 0.8rem;
+  width: 100%;
 `;
 
 function Movie({ imgType, divType, children }) {

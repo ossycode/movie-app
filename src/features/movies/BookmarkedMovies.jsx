@@ -6,8 +6,10 @@ import BookmarkedSeriesList from "./BookmarkedSeriesList";
 import { useMovies } from "./useMovies";
 import { useSearchParams } from "react-router-dom";
 import Searched from "./Searched";
+import StyledContainer from "../../styles/Styledcontainer";
+import Header from "../../ui/Header";
 
-const StyledContainer = styled.div`
+const StyledDiv = styled.div`
   margin-top: 4rem;
 `;
 
@@ -23,17 +25,18 @@ function BookmarkedMovies() {
   if (isLoading) return <Spinner />;
 
   return (
-    <>
+    <StyledContainer>
+      <Header resourceName="Search for bookmarked shows" />
       <div>
         <StyledHeading as="h1">Bookmarked Movies</StyledHeading>
         <BookmarkedMoviesList movies={movies} />
       </div>
 
-      <StyledContainer>
+      <StyledDiv>
         <StyledHeading as="h1">Bookmarked TV Series</StyledHeading>
         <BookmarkedSeriesList movies={movies} />
-      </StyledContainer>
-    </>
+      </StyledDiv>
+    </StyledContainer>
   );
 }
 

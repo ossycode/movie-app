@@ -20,6 +20,10 @@ export const GlobalStyles = createGlobalStyle`
   /* Creating animations for dark mode */
   transition: background-color 0.3s, border 0.3s;
 }
+html,
+body {
+  overflow-x: hidden;
+}
 
 html {
   font-size: 62.5%;

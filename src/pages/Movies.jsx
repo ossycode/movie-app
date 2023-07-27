@@ -1,5 +1,4 @@
 import MovieList from "../features/movies/MovieList";
-import StyledHeading from "../styles/StyledHeading";
 
 function movies() {
   return (

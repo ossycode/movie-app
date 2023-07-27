@@ -4,6 +4,15 @@ import App from "./App.jsx";
 // import store from "./store.js";
 import isPropValid from "@emotion/is-prop-valid";
 import { StyleSheetManager } from "styled-components";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 0,
+    },
+  },
+});
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -13,7 +22,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     >
       {/* <Provider store={store}>
       </Provider> */}
-      <App />
+      <QueryClientProvider client={queryClient}>
+        <App />
+      </QueryClientProvider>
     </StyleSheetManager>
   </React.StrictMode>
 );

@@ -8,11 +8,16 @@ import { useMovies } from "./useMovies";
 import { useSearchParams } from "react-router-dom";
 import Searched from "./Searched";
 import StyledHeading from "../../styles/StyledHeading";
+import { useScreenSize } from "../../hooks/useScreenSize";
+import StyledContainer from "../../styles/Styledcontainer";
+import Header from "../../ui/Header";
 
 function SeriesList() {
   const { movies, isLoading } = useMovies();
 
   const [searchParams] = useSearchParams();
+
+  const { matches } = useScreenSize();
 
   const hasSearchParams = searchParams.has("search");
 
@@ -23,14 +28,15 @@ function SeriesList() {
   const series = movies.filter((movie) => movie.category === "TV Series");
 
   return (
-    <>
+    <StyledContainer>
+      <Header resourceName="Search for TV series" />
       <StyledHeading as="h1">TV Series</StyledHeading>
       <StyledMovieGrid>
         {series.map((movie, index) => (
           <StyledMovieCardDiv key={movie.title}>
             <Movie
               movie={movie}
-              imgType={movie.thumbnail.regular.large}
+              imgType={movie.thumbnail.regular[matches]}
               divType="recommended"
             >
               <BookmarkBtn movie={movie} index={index} />
@@ -39,7 +45,7 @@ function SeriesList() {
           </StyledMovieCardDiv>
         ))}
       </StyledMovieGrid>
-    </>
+    </StyledContainer>
   );
 }
 

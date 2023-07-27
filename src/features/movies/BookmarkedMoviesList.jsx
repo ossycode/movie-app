@@ -6,8 +6,11 @@ import Empty from "../../ui/Empty";
 // import { useMovies } from "../../context/MoviesContext";
 import StyledMovieCardDiv from "../../styles/StyledMovieCardDiv";
 import MovieInfoContainer from "../../ui/MovieInfoContainer";
+import { useScreenSize } from "../../hooks/useScreenSize";
 
 function BookmarkedMoviesList({ movies }) {
+  const { matches } = useScreenSize();
+
   const moviesList = movies.filter(
     (movie) => movie.category === "Movie" && movie.isBookmarked === true
   );
@@ -19,7 +22,7 @@ function BookmarkedMoviesList({ movies }) {
         <StyledMovieCardDiv key={movie.title}>
           <Movie
             movie={movie}
-            imgType={movie.thumbnail.regular.large}
+            imgType={movie.thumbnail.regular[matches]}
             divType="recommended"
           >
             <BookmarkBtn movie={movie} />
