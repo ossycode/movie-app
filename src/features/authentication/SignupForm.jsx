@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 
 import { NavLink } from "react-router-dom";
-import { useSignup } from "./useSignup";
+import { useSignUp } from "./useSignUp";
 import { useForm } from "react-hook-form";
 
 import StyledInput from "../../styles/StyledInput";
@@ -37,14 +37,14 @@ const StyledLink = styled(NavLink)`
   }
 `;
 
-function SignupForm() {
+function SignUpForm() {
   const { register, formState, getValues, reset, handleSubmit } = useForm();
-  const { signup, isLoading } = useSignup();
+  const { signUp, isLoading } = useSignUp();
 
   const { errors } = formState;
 
   function onSubmit({ name, email, password }) {
-    signup({ name, email, password }, { onSettled: () => reset() });
+    signUp({ name, email, password }, { onSettled: () => reset() });
   }
 
   return (
@@ -124,4 +124,4 @@ function SignupForm() {
   );
 }
 
-export default SignupForm;
+export default SignUpForm;

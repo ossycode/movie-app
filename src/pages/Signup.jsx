@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import SignupForm from "../features/authentication/signupForm";
+import SignUpForm from "../features/authentication/SignUpForm";
 import Logo from "../ui/Logo";
 
 const StyledContainer = styled.div`
@@ -10,13 +10,13 @@ const StyledContainer = styled.div`
   padding: 7.4rem;
 `;
 
-function Signup() {
+function SignUp() {
   return (
     <StyledContainer>
       <Logo />
-      <SignupForm />
+      <SignUpForm />
     </StyledContainer>
   );
 }
 
-export default Signup;
+export default SignUp;

@@ -59,7 +59,6 @@ const router = createBrowserRouter([
 function App() {
   return (
     <>
-      <ReactQueryDevtools initialIsOpen={false} />
       <GlobalStyles />
       <RouterProvider router={router} />
       <Tooltip id="my-tooltip" />
