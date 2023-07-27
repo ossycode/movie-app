@@ -15,8 +15,6 @@ const StyledForm = styled.form`
   padding: 3rem;
   min-width: 40rem;
   border-radius: 2rem;
-  /* max-height: 41.8rem; */
-  /* flex-shrink: 0; */
   margin: 0 auto;
 `;
 const StyledInputsContainer = styled.div`
@@ -36,7 +34,6 @@ const StyledLink = styled(NavLink)`
     color: var(--color-red-50);
     text-decoration: none;
     margin-left: 0.5rem;
-    /* cursor: pointer; */
   }
 `;
 

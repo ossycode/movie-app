@@ -5,25 +5,15 @@ import Homepage from "./pages/Homepage";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Bookmarked from "./pages/Bookmarked";
-// import TvSeries from "./pages/TvSeries ";
 import AppLayout from "./ui/AppLayout";
 import TvSeries from "./pages/TvSeries";
 import Movies from "./pages/Movies";
 import PageNotFound from "./pages/PageNotFound";
-// import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Toaster } from "react-hot-toast";
 import ProtectedRoute from "./ui/ProtectedRoute";
 import { Tooltip } from "react-tooltip";
 import Settings from "./pages/Settings";
-
-// const queryClient = new QueryClient({
-//   defaultOptions: {
-//     queries: {
-//       staleTime: 0,
-//     },
-//   },
-// });
 
 const router = createBrowserRouter([
   {
