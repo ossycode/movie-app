@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
-import SignUpForm from "../features/authentication/SignUpForm";
 import Logo from "../ui/Logo";
+import SignUpForm from "../features/authentication/signupForm";
 
 const StyledContainer = styled.div`
   display: flex;

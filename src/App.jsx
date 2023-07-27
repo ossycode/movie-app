@@ -3,7 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import Homepage from "./pages/Homepage";
 import Login from "./pages/Login";
-import SignUp from "./pages/SignUp";
+
 import Bookmarked from "./pages/Bookmarked";
 import AppLayout from "./ui/AppLayout";
 import TvSeries from "./pages/TvSeries";
@@ -13,6 +13,7 @@ import { Toaster } from "react-hot-toast";
 import ProtectedRoute from "./ui/ProtectedRoute";
 import { Tooltip } from "react-tooltip";
 import Settings from "./pages/Settings";
+import SignUp from "./pages/Signup";
 
 const router = createBrowserRouter([
   {
