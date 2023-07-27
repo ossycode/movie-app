@@ -20,9 +20,7 @@ export async function signup({ email, password, name }) {
       throw new Error(err.message);
     });
 
-    await updateProfile(auth.currentUser, { displayName: name }).then(
-      console.log(auth.currentUser)
-    );
+    await updateProfile(auth.currentUser, { displayName: name }).then();
   } catch (err) {
     console.log(err.message);
     throw new Error(err.message);
