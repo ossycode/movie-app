@@ -3,13 +3,12 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import Homepage from "./pages/Homepage";
 import Login from "./pages/Login";
-import Signup from "./pages/Signup";
+import SignUp from "./pages/SignUp";
 import Bookmarked from "./pages/Bookmarked";
 import AppLayout from "./ui/AppLayout";
 import TvSeries from "./pages/TvSeries";
 import Movies from "./pages/Movies";
 import PageNotFound from "./pages/PageNotFound";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Toaster } from "react-hot-toast";
 import ProtectedRoute from "./ui/ProtectedRoute";
 import { Tooltip } from "react-tooltip";
@@ -52,7 +51,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/signup",
-    element: <Signup />,
+    element: <SignUp />,
   },
 ]);
 
