@@ -6,7 +6,7 @@ import PlayButton from "../../ui/PlayButton";
 import StyledMovieCardDiv from "../../styles/StyledMovieCardDiv";
 import StyledMovieGrid from "../../styles/StyledMovieGrid";
 import { useScreenSize } from "../../hooks/useScreenSize";
-import StyledContainer from "../../styles/Styledcontainer";
+import StyledContainer from "./../../styles/StyledContainer";
 import Empty from "../../ui/Empty";
 
 function RecommendedList({ movies }) {

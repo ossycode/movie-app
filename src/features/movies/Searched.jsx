@@ -9,7 +9,7 @@ import Empty from "../../ui/Empty";
 import StyledHeading from "../../styles/StyledHeading";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useScreenSize } from "../../hooks/useScreenSize";
-import StyledContainer from "../../styles/Styledcontainer";
+import StyledContainer from "./../../styles/StyledContainer";
 import Header from "../../ui/Header";
 
 function Searched() {
