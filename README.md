@@ -42,7 +42,9 @@ Users should be able to:
 - CSS custom properties
 - Flexbox
 - CSS Grid
+- Vite
 - [React](https://reactjs.org/) - JS library
+- React Router
 - [Styled Components](https://styled-components.com/) - For styles
 
 ## Author
