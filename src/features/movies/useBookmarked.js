@@ -7,7 +7,6 @@ export function useBookmarked() {
     mutationFn: bookmarkedMovieApi,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["movies"] });
-      console.log("success");
     },
     onError: (err) => {
       console.log(err.message);
