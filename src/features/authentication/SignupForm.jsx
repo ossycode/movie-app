@@ -36,7 +36,7 @@ const StyledLink = styled(NavLink)`
   }
 `;
 
-function SignUpForm() {
+function SignupForm() {
   const { register, formState, getValues, reset, handleSubmit } = useForm();
   const { signUp, isLoading } = useSignUp();
 
@@ -123,4 +123,4 @@ function SignUpForm() {
   );
 }
 
-export default SignUpForm;
+export default SignupForm;
