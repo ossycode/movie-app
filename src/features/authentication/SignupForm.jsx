@@ -3,7 +3,6 @@ import { styled } from "styled-components";
 import { NavLink } from "react-router-dom";
 import { useSignUp } from "./useSignUp";
 import { useForm } from "react-hook-form";
-
 import StyledInput from "../../styles/StyledInput";
 import StyledHeading from "../../styles/StyledHeading";
 import StyledButton from "../../styles/StyledButton";
