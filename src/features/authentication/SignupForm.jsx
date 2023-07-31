@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 
 import { NavLink } from "react-router-dom";
-import { useSignUp } from "./useSignUp";
+import { useSignup } from "./useSignup";
 import { useForm } from "react-hook-form";
 import StyledInput from "../../styles/StyledInput";
 import StyledHeading from "../../styles/StyledHeading";
@@ -38,12 +38,12 @@ const StyledLink = styled(NavLink)`
 
 function SignupForm() {
   const { register, formState, getValues, reset, handleSubmit } = useForm();
-  const { signUp, isLoading } = useSignUp();
+  const { signup, isLoading } = useSignup();
 
   const { errors } = formState;
 
   function onSubmit({ name, email, password }) {
-    signUp({ name, email, password }, { onSettled: () => reset() });
+    signup({ name, email, password }, { onSettled: () => reset() });
   }
 
   return (

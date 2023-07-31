@@ -3,10 +3,10 @@ import { signup as signupApi } from "../../services/apiAuth";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 
-export function useSignUp() {
+export function useSignup() {
   const navigate = useNavigate();
 
-  const { mutate: signUp, isLoading } = useMutation({
+  const { mutate: signup, isLoading } = useMutation({
     mutationFn: signupApi,
     onSuccess: () => {
       navigate("/login");
@@ -17,5 +17,5 @@ export function useSignUp() {
     },
   });
 
-  return { signUp, isLoading };
+  return { signup, isLoading };
 }
