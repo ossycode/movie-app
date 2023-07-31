@@ -6,7 +6,7 @@ import BookmarkedSeriesList from "./BookmarkedSeriesList";
 import { useMovies } from "./useMovies";
 import { useSearchParams } from "react-router-dom";
 import Searched from "./Searched";
-import StyledContainer from "../../styles/Styledcontainer";
+import StyledContainer from "./../../styles/StyledContainer";
 import Header from "../../ui/Header";
 
 const StyledDiv = styled.div`
